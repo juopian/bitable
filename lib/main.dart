@@ -24,8 +24,21 @@ class Item extends StatelessWidget {
   final double height;
   final Widget child;
   final Color color;
+  final Function onTap;
+  final Color fontColor;
+  final double fontSize;
+  final Color borderColor;
 
-  const Item({Key key, this.width, this.height, this.color, this.child})
+  const Item(
+      {Key key,
+      this.width,
+      this.height,
+      this.color,
+      this.child,
+      this.onTap,
+        this.fontSize = 16.0,
+      this.fontColor = Colors.white,
+      this.borderColor = Colors.white})
       : super(key: key);
 
   @override
@@ -34,14 +47,14 @@ class Item extends StatelessWidget {
       decoration: BoxDecoration(
           color: color,
           border: Border(
-            right: BorderSide(color: Colors.white),
-            bottom: BorderSide(color: Colors.white),
+            right: BorderSide(color: borderColor),
+            bottom: BorderSide(color: borderColor),
           )),
       height: height,
       width: width,
       child: DefaultTextStyle(
         child: child,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: fontColor,fontSize: fontSize),
       ),
     );
   }
@@ -100,6 +113,37 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 1
+    },
+    {
+      "act1": '100',
+      "act2": '200',
+      "col1": '1',
+      "col2": '3',
+      "col3": '3',
+      "col4": '4',
+      "col5": '5',
+      "col6": '6',
+      "col7": '7',
+      "col8": '8',
+      "col9": '9',
+      "col10": '10',
+      "order_id": 2
+    },
+    {
+      "act1": '100',
+      "act2": '200',
+      "col1": '1',
+      "col2": '4',
+      "col3": '3',
+      "col4": '4',
+      "col5": '5',
+      "col6": '6',
+      "col7": '7',
+      "col8": '8',
+      "col9": '9',
+      "col10": '10',
+      "order_id": 3
     },
     {
       "act1": '100',
@@ -114,6 +158,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 4
     },
     {
       "act1": '100',
@@ -128,6 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 5
     },
     {
       "act1": '100',
@@ -142,6 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 6
     },
     {
       "act1": '100',
@@ -156,6 +203,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 7
     },
     {
       "act1": '100',
@@ -170,6 +218,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 8
     },
     {
       "act1": '100',
@@ -184,6 +233,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 9
     },
     {
       "act1": '100',
@@ -198,6 +248,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 10
     },
     {
       "act1": '100',
@@ -212,6 +263,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 11
     },
     {
       "act1": '100',
@@ -226,6 +278,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 12
     },
     {
       "act1": '100',
@@ -240,6 +293,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 13
     },
     {
       "act1": '100',
@@ -254,6 +308,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 14
     },
     {
       "act1": '100',
@@ -268,6 +323,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
+      "order_id": 15
     },
     {
       "act1": '100',
@@ -282,7 +338,9 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
-    },{
+      "order_id": 16
+    },
+    {
       "act1": '100',
       "act2": '200',
       "col1": '1',
@@ -295,7 +353,9 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
-    },{
+      "order_id": 17
+    },
+    {
       "act1": '100',
       "act2": '200',
       "col1": '1',
@@ -308,32 +368,7 @@ class _MyHomePageState extends State<MyHomePage> {
       "col8": '8',
       "col9": '9',
       "col10": '10',
-    },{
-      "act1": '100',
-      "act2": '200',
-      "col1": '1',
-      "col2": '2',
-      "col3": '3',
-      "col4": '4',
-      "col5": '5',
-      "col6": '6',
-      "col7": '7',
-      "col8": '8',
-      "col9": '9',
-      "col10": '10',
-    },{
-      "act1": '100',
-      "act2": '200',
-      "col1": '1',
-      "col2": '2',
-      "col3": '3',
-      "col4": '4',
-      "col5": '5',
-      "col6": '6',
-      "col7": '7',
-      "col8": '8',
-      "col9": '9',
-      "col10": '10',
+      "order_id": 18
     },
   ];
 
@@ -364,6 +399,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   (level == 0 ? (headerLevel - maxLevel + 1) : 1),
               width: contentWidth * inner.length,
               child: Center(child: Text(lastValue)),
+              onTap: () {
+                print('maxLevel is $maxLevel, level is $level');
+                if (maxLevel == level + 1) {
+                  print('sort by ${element.keys.first}');
+                }
+              },
             ));
             inner = [loopTitle];
           } else {
@@ -382,6 +423,11 @@ class _MyHomePageState extends State<MyHomePage> {
               headerHeight * (level == 0 ? (headerLevel - maxLevel + 1) : 1),
           width: contentWidth * inner.length,
           child: Center(child: Text(lastValue)),
+          onTap: () {
+            if (maxLevel == level + 1) {
+              //print('sort by ${element.keys.first}');
+            }
+          },
         ));
       }
 
@@ -496,14 +542,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 physics: ClampingScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 child: Column(
-                    children: mainData.map((e) {
+                    children: mainData.asMap().entries.map((e) {
                   return Row(
                     children: ['act1', 'act2']
                         .map((col) => Item(
-                              color: Colors.orange,
+                              color: e.key % 2 == 0
+                                  ? Colors.white
+                                  : Color(0xfff1f1f1),
                               width: sideWidth,
                               height: contentHeight,
-                              child: Center(child: Text(e[col])),
+                              fontColor: Colors.black,
+                              borderColor: e.key % 2 == 0
+                                  ? Color(0xfff1f1f1)
+                                  : Colors.white,
+                              child: Center(child: Text(e.value[col])),
                             ))
                         .toList(),
                   );
@@ -553,7 +605,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       physics: ClampingScrollPhysics(),
                       scrollDirection: Axis.vertical,
                       child: Column(
-                          children: mainData.map((e) {
+                          children: mainData.asMap().entries.map((e) {
                         return Row(
                           children: [
                             'col1',
@@ -568,10 +620,16 @@ class _MyHomePageState extends State<MyHomePage> {
                             'col10',
                           ]
                               .map((col) => Item(
-                                    color: Colors.orange,
+                                    color: e.key % 2 == 0
+                                        ? Colors.white
+                                        : Color(0xfff1f1f1),
                                     width: sideWidth,
                                     height: contentHeight,
-                                    child: Center(child: Text(e[col])),
+                                    fontColor: Colors.black,
+                                    borderColor: e.key % 2 == 0
+                                        ? Color(0xfff1f1f1)
+                                        : Colors.white,
+                                    child: Center(child: Text(e.value[col])),
                                   ))
                               .toList(),
                         );
@@ -639,7 +697,9 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: [
-          SizedBox(height: 300, child: SimpleLineChart.withSampleData()),
+          MediaQuery.of(context).orientation == Orientation.portrait
+              ? SizedBox(height: 300, child: SimpleLineChart.withSampleData())
+              : Container(),
           _header(),
           Expanded(child: _body())
         ],
